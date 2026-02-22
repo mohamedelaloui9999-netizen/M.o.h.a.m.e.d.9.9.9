@@ -1,0 +1,160 @@
+body{
+margin:0;
+font-family:Arial;
+color:white;
+background:black;
+overflow-x:hidden;
+}
+
+/* 🌌 Moving Stars */
+body::before{
+content:"";
+position:fixed;
+width:200%;
+height:200%;
+background:url("https://www.transparenttextures.com/patterns/stardust.png");
+animation:moveStars 120s linear infinite;
+z-index:-2;
+}
+
+@keyframes moveStars{
+from{transform:translate(0,0);}
+to{transform:translate(-1000px,-1000px);}
+}
+
+header{
+background:rgba(0,150,255,0.7);
+text-align:center;
+padding:20px;
+}
+
+section{
+max-width:900px;
+margin:30px auto;
+padding:20px;
+background:rgba(255,255,255,0.08);
+border-radius:15px;
+backdrop-filter:blur(10px);
+}
+
+/* 👽 Alien Intro */
+#alienOverlay{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:black;
+display:flex;
+justify-content:center;
+align-items:center;
+z-index:9999;
+transition:1.5s;
+}
+
+#alienImage{
+width:200px;
+animation:floatAlien 3s infinite alternate;
+}
+
+@keyframes floatAlien{
+from{transform:translateY(0);}
+to{transform:translateY(-20px);}
+}
+
+/* 🛒 Store */
+.products-container{
+display:flex;
+gap:20px;
+flex-wrap:wrap;
+}
+
+.product-card{
+background:rgba(255,255,255,0.1);
+padding:15px;
+border-radius:12px;
+flex:1 1 200px;
+text-align:center;
+transition:0.3s;
+}
+
+.product-card:hover{
+transform:scale(1.05);
+box-shadow:0 0 20px cyan;
+}
+
+/* 🌌 Contact Energy */
+#contact{
+opacity:0;
+transform:translateY(80px);
+transition:1.2s;
+position:relative;
+overflow:hidden;
+}
+
+.show-contact{
+opacity:1 !important;
+transform:translateY(0) !important;
+}
+
+#contact::before{
+content:"";
+position:absolute;
+inset:0;
+background:radial-gradient(circle,rgba(0,255,255,0.15),transparent 70%);
+animation:pulse 4s infinite;
+z-index:-1;
+}
+
+@keyframes pulse{
+0%{transform:scale(1);opacity:0.5;}
+50%{transform:scale(1.2);opacity:1;}
+100%{transform:scale(1);opacity:0.5;}
+}
+
+.social-links{
+display:flex;
+flex-direction:column;
+gap:15px;
+}
+
+.social{
+display:flex;
+gap:10px;
+padding:12px;
+border-radius:12px;
+background:rgba(255,255,255,0.08);
+text-decoration:none;
+font-weight:bold;
+transition:0.3s;
+position:relative;
+overflow:hidden;
+}
+
+.social:hover{
+transform:scale(1.05);
+box-shadow:0 0 20px cyan;
+}
+
+.flash{
+position:absolute;
+width:150%;
+height:150%;
+background:radial-gradient(circle,white,transparent 60%);
+top:-25%;
+left:-25%;
+animation:explode 0.5s forwards;
+}
+
+@keyframes explode{
+0%{transform:scale(0);}
+100%{transform:scale(1);opacity:0;}
+}
+
+#sparkCanvas{
+position:fixed;
+top:0;
+left:0;
+pointer-events:none;
+z-index:0;
+}
